@@ -1,64 +1,230 @@
-Mindtune — AI-Powered Adaptive Quiz Generator
+🌟 Mindtune — AI-Powered Adaptive Quiz Generator
 
-Mindtune is an intelligent quiz-generation platform designed to create dynamic, personalized learning experiences using generative AI. Instead of relying on fixed question banks, Mindtune builds quizzes on demand from any topic the user enters. The system analyzes the topic, constructs a diverse set of questions across multiple cognitive levels, and delivers a complete quiz experience with scoring, performance evaluation, and structured feedback.
-The core idea is simple: learning should be instant, adaptive, and accessible. Mindtune allows users to type any subject — from linear algebra to world history — and receive a full 10-question quiz tailored to that domain. The questions always follow a consistent structure: five easy, four medium, and one hard, with a mix of conceptual, numerical, paragraph-based, case-study, and multi-step reasoning types. This ensures each quiz evaluates different skills rather than repeating similar patterns.
+Mindtune is an intelligent quiz-generation platform that creates dynamic, personalized learning experiences using generative AI.
+Instead of relying on fixed question banks, Mindtune generates quizzes instantly from any topic entered by the user.
 
+Whether the topic is Linear Algebra, Organic Chemistry, or World History, Mindtune produces a complete 10-question quiz with diverse difficulty levels and reasoning types — giving users a fast, adaptive way to learn anything.
 
+🚀 Key Features
 
-How It Works:
-— System Flow
-User enters a topic
-In the Topic screen, the user types a subject they want to practice.
-Frontend sends request to backend
-A POST request goes to the Flask server at /generate, containing the topic.
-AI Question Generation (Backend)
-The backend uses Google’s Gemini model with a carefully engineered prompt that enforces:
-10 questions
-4 options each
-Strict JSON output
-Difficulty and type distribution
-Topic relevance
-The backend validates the AI output and returns a clean JSON array to the frontend.
-Display Quiz Interface
-The frontend (built in Next.js/React) displays:
+Instant AI-generated quizzes from any topic
+
+Balanced difficulty mix:
+
+5 Easy
+
+4 Medium
+
+1 Hard
+
+5 Question Types:
+
+Conceptual
+
+Numerical
+
+Case Study
+
+Paragraph-based
+
+Multi-step reasoning
+
+Structured JSON output enforced by prompt engineering
+
+Interactive quiz UI with navigation and timers
+
+Automatic scoring & analytics
+
+Performance summary with improvements section
+
+Fast, modern frontend powered by Next.js
+
+Reliable backend using Flask + Gemini AI
+
+🧠 How Mindtune Works
+1. User Enters a Topic
+
+The learner types a subject they want to practice in the Topic screen.
+
+2. Frontend Sends Request
+
+A POST /generate request is sent to the Flask backend containing the topic.
+
+3. AI Question Generation (Backend)
+
+The backend uses Google Gemini to generate:
+
+Exactly 10 questions
+
+4 options per question
+
+Strict JSON structure
+
+Required difficulty distribution
+
+Required question type mix
+
+Topic-relevant, diverse questions
+
+The backend validates and formats the AI response before sending it back.
+
+4. Quiz Experience (Frontend)
+
+The Next.js app renders:
+
 Question navigation
-Question text and options
-Response tracking
-Timer per question
-Users can move freely between questions before submitting.
-Submission & Scoring
-Once the quiz is submitted, the app:
+
+Options & selection tracking
+
+Per-question timers
+
+Ability to move forward/backward
+
+5. Submission & Scoring
+
+Once submitted, the app:
+
 Calculates score
-Determines correct/incorrect answers
-Measures total time
-Builds detailed performance analytics
-Identifies strengths and weaknesses
-Results Screen
-The user sees a complete summary of their performance, with the option to try again or return home to generate a new quiz.
 
+Marks correct/incorrect answers
 
+Computes total & average time
 
+Generates analytics
 
-Key Technologies:
+Summarizes strengths and weaknesses
 
+6. Results Screen
+
+Users receive:
+
+Final score & percentage
+
+Correct vs incorrect breakdown
+
+Time analysis
+
+Improvement suggestions
+
+Options to retry or go home
+
+🛠️ Tech Stack
 Frontend
-Next.js (App Router) for a fast, interactive UI
-React for component-based quiz screens
-TailwindCSS for clean, responsive styling
-Client-side state management using React hooks
-Fetch API for backend integration
+
+Next.js (App Router)
+
+React
+
+TailwindCSS
+
+Client-side state management (React Hooks)
+
+Fetch API
+
 Backend
-Flask for a lightweight, robust REST API
-Google Generative AI (Gemini) for generating structured question sets
-python-dotenv for secure API key management
-CORS to enable frontend communication
-JSON validation & transformation to ensure safe, predictable output
-Architecture
-The system follows a clear separation of concerns:
-AI logic + API server → backend
-UI + user flow + quiz rendering → frontend
-Communication happens through a single endpoint, keeping the system flexible and scalable.
+
+Flask (Python)
+
+Google Generative AI (Gemini)
+
+python-dotenv
+
+Flask-CORS
+
+JSON validation utilities
+
+🏗️ Architecture Overview
+User → Mindtune UI (Next.js, Vercel)
+        ↓
+POST /generate
+        ↓
+Flask Backend (Render)
+        ↓
+Gemini Model → Validated JSON Output
+        ↓
+Quiz Rendering → Scoring Engine → Results Screen
 
 
-Why It Works:
-Mindtune brings together AI generation, structured assessment, and intuitive UI design. Instead of creating and managing huge question banks, the system creates new content instantly — unique every time. By enforcing difficulty levels and question variety, the platform ensures a balanced evaluation rather than random trivia. The modular architecture keeps the system easy to expand, whether by adding user authentication, progress tracking, or adaptive difficulty tuning.
+(You may replace this with your actual PNG/SVG architecture diagram.)
+
+⚙️ Local Setup & Installation
+1. Clone the Repository
+git clone https://github.com/<your-username>/mindtune.git
+cd mindtune
+
+Backend Setup (Flask)
+2. Install dependencies
+cd backend
+pip install -r requirements.txt
+
+3. Create a .env file
+GEMINI_API_KEY=your_key_here
+
+4. Run the server
+python back.py
+
+
+Backend runs at:
+
+http://localhost:5000
+
+Frontend Setup (Next.js)
+5. Install dependencies
+cd frontend
+npm install
+
+6. Create .env.local
+NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
+
+7. Run the development server
+npm run dev
+
+
+Frontend runs at:
+
+http://localhost:3000
+
+🌐 Deployment
+Frontend (Vercel)
+
+Deploy /frontend
+
+Add environment variable:
+NEXT_PUBLIC_BACKEND_URL=https://<render-backend-url>
+
+Backend (Render)
+
+Deploy /backend
+
+Runtime: Python
+
+Start Command:
+
+gunicorn back:app --bind 0.0.0.0:$PORT
+
+
+Add environment variable:
+
+GEMINI_API_KEY=your_key
+
+🧭 Roadmap
+
+ Adaptive difficulty scaling using past performance
+
+ Personalized question recommendations
+
+ Downloadable PDF report per quiz
+
+ User accounts & progress tracking
+
+ Multi-language support
+
+ Teacher dashboard for classroom use
+
+📄 License
+
+This project is licensed under the MIT License.
+
+🙌 Contributors
+
+Made with 💡, ☕, and a passion for AI-driven education.
