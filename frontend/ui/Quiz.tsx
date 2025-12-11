@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { processQuizResults } from "@/utils/resultProcessor"
+import { processQuizResults } from "@/generate/resultProcessor"
 import type { Question, AnswerEntry, QuizResult } from "@/types"
 
 interface QuizProps {

@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Landing from "@/components/Landing"
-import Auth from "@/components/Auth"
-import Topic from "@/components/Topic"
-import Quiz from "@/components/Quiz"
-import Results from "@/components/Results"
+import Landing from "@/ui/Landing"
+import Auth from "@/ui/Auth"
+import Topic from "@/ui/Topic"
+import Quiz from "@/ui/Quiz"
+import Results from "@/ui/Results"
 import type { Question, QuizResult } from "@/types"
 
 type Screen = "landing" | "auth" | "topic" | "quiz" | "results"

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { generateQuestions } from "@/utils/questionGenerator"
+import { generateQuestions } from "@/generate/questionGenerator"
 import type { Question } from "@/types"
 
 interface TopicProps {

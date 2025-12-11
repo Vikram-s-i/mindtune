@@ -2,10 +2,14 @@ export async function generateQuestions(topic: string) {
   const res = await fetch("http://localhost:5000/generate", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ topic })
+    body: JSON.stringify({ topic }),
   })
 
-  if (!res.ok) throw new Error("Backend error")
+  if (!res.ok) {
+    const raw = await res.text()
+    console.error("🔥 BACKEND ERROR:", raw)
+    throw new Error("Backend error: " + raw)
+  }
 
   const data = await res.json()
 

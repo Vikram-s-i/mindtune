@@ -1,14 +1,22 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Enable CORS for all routes
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+
+API_KEY = os.getenv("GEMINI_API_KEY")
+if not API_KEY:
+    raise ValueError("GEMINI_API_KEY not found in environment variables")
 # Configure your key
-genai.configure(api_key="AIzaSyDhj64qm1YP8geVxvbI2460_CNy-tJBst8")
+genai.configure(api_key=API_KEY)
 
 PROMPT_TEMPLATE = """
 Generate exactly 10 multiple choice questions for topic: "{topic}"
