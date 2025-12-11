@@ -5,7 +5,8 @@ The core idea is simple: learning should be instant, adaptive, and accessible. M
 
 
 
-How It Works — System Flow
+How It Works:
+— System Flow
 User enters a topic
 In the Topic screen, the user types a subject they want to practice.
 Frontend sends request to backend
@@ -37,7 +38,9 @@ The user sees a complete summary of their performance, with the option to try ag
 
 
 
-Key Technologies
+
+Key Technologies:
+
 Frontend
 Next.js (App Router) for a fast, interactive UI
 React for component-based quiz screens
@@ -57,5 +60,5 @@ UI + user flow + quiz rendering → frontend
 Communication happens through a single endpoint, keeping the system flexible and scalable.
 
 
-Why It Works
+Why It Works:
 Mindtune brings together AI generation, structured assessment, and intuitive UI design. Instead of creating and managing huge question banks, the system creates new content instantly — unique every time. By enforcing difficulty levels and question variety, the platform ensures a balanced evaluation rather than random trivia. The modular architecture keeps the system easy to expand, whether by adding user authentication, progress tracking, or adaptive difficulty tuning.
