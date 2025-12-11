@@ -11,6 +11,10 @@ app = Flask(__name__)
 # Enable CORS for all routes
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+@app.route("/")
+def home():
+    return {"status": "backend running"}
+
 
 API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
