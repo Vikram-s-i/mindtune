@@ -1,4 +1,4 @@
-Mindtune — AI-Powered Adaptive Quiz Generator
+**Mindtune — AI-Powered Adaptive Quiz Generator**
 
 Mindtune is an intelligent quiz-generation platform designed to create dynamic, personalized learning experiences using generative AI.
 
@@ -18,7 +18,7 @@ Every quiz evaluates a variety of cognitive skills rather than repeating similar
 
 
 
-Live Demo
+**Live Demo**
 🔹 Frontend (Next.js / Vercel)
 
 👉 https://mindtune-kappa.vercel.app
@@ -30,23 +30,22 @@ Live Demo
 
 
 
-How It Works — System Flow
-1️⃣ User Enters a Topic
+**How It Works — System Flow**
+1️⃣ **User Enters a Topic**
 
 The user types any subject they want to practice in the Topic screen.
 
-2️⃣ Frontend Sends Request to Backend
+2️⃣ **Frontend Sends Request to Backend**
 
 A POST request is sent from the Next.js frontend to the Flask backend:
 
 POST https://mindtune-y7gb.onrender.com/generate
 
-
 Payload:
 
 { "topic": "<user-topic>" }
 
-3️⃣ AI Question Generation (Backend)
+3️⃣ **AI Question Generation (Backend)**
 
 The backend uses Google Gemini with a structured prompt enforcing:
 
@@ -62,7 +61,7 @@ Topic relevance
 
 The backend validates and returns a clean JSON array.
 
-4️⃣ Quiz Display (Frontend)
+4️⃣ **Quiz Display (Frontend)**
 
 The frontend (Next.js + Tailwind) handles:
 
@@ -74,7 +73,7 @@ Tracking selected answers
 
 Time spent per question
 
-5️⃣ Submission & Scoring
+5️⃣ **Submission & Scoring**
 
 When the user submits:
 
@@ -88,7 +87,7 @@ Performance analytics are built
 
 Areas for improvement are identified
 
-6️⃣ Results Page
+6️⃣ **Results Page**
 
 Users receive a full summary with:
 
@@ -105,7 +104,7 @@ Buttons to retry or return home
 
 
 
-Key Technologies
+**Key Technologies**
 Frontend
 
 Next.js (App Router)
@@ -133,7 +132,7 @@ Render deployment
 
 
 
-Architecture Overview
+**Architecture Overview**
 
 User
  ↓
@@ -155,7 +154,7 @@ Easy to extend (user accounts, history, leaderboard, adaptive learning)
 
 
 
-🔧 Development Setup
+🔧 **Development Setup**
 Backend (Flask)
 cd backend
 pip install -r requirements.txt
@@ -184,7 +183,7 @@ NEXT_PUBLIC_BACKEND_URL=https://mindtune-y7gb.onrender.com
 
 
 
-🛣️ Roadmap
+🛣️ **Roadmap**
 
 Adaptive difficulty
 
