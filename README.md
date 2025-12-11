@@ -1,4 +1,10 @@
+
+<br>
+
 **Mindtune — AI-Powered Adaptive Quiz Generator**
+
+<br>
+<br>
 
 Mindtune is an intelligent quiz-generation platform designed to create dynamic, personalized learning experiences using generative AI.
 
@@ -18,6 +24,9 @@ Every quiz evaluates a variety of cognitive skills rather than repeating similar
 
 
 
+<br>
+<br>
+
 **Live Demo**
 🔹 Frontend (Next.js / Vercel)
 
@@ -29,6 +38,8 @@ Every quiz evaluates a variety of cognitive skills rather than repeating similar
 
 
 
+<br>
+<br>
 
 **How It Works — System Flow**
 1️⃣ **User Enters a Topic**
@@ -44,6 +55,8 @@ POST https://mindtune-y7gb.onrender.com/generate
 Payload:
 
 { "topic": "<user-topic>" }
+
+<br>
 
 3️⃣ **AI Question Generation (Backend)**
 
@@ -61,6 +74,8 @@ Topic relevance
 
 The backend validates and returns a clean JSON array.
 
+<br>
+
 4️⃣ **Quiz Display (Frontend)**
 
 The frontend (Next.js + Tailwind) handles:
@@ -72,6 +87,8 @@ Navigation controls
 Tracking selected answers
 
 Time spent per question
+
+<br>
 
 5️⃣ **Submission & Scoring**
 
@@ -86,6 +103,8 @@ Total + average time is measured
 Performance analytics are built
 
 Areas for improvement are identified
+
+<br>
 
 6️⃣ **Results Page**
 
@@ -102,11 +121,12 @@ Weakness insights
 Buttons to retry or return home
 
 
+<br>
+<br>
 
 
 **Key Technologies**
 Frontend
-
 Next.js (App Router)
 
 React
@@ -116,6 +136,8 @@ TailwindCSS
 Fetch API
 
 Vercel deployment
+
+<br>
 
 Backend
 
@@ -129,7 +151,9 @@ Flask-CORS
 
 Render deployment
 
+<br>
 
+<br>
 
 
 **Architecture Overview**
@@ -149,7 +173,8 @@ Ensures balanced difficulty and varied reasoning styles
 Clean and modular architecture (Frontend ↔ Backend isolation)
 
 Easy to extend (user accounts, history, leaderboard, adaptive learning)
-
+<br>
+<br>
 
 
 
@@ -181,7 +206,8 @@ NEXT_PUBLIC_BACKEND_URL=https://mindtune-y7gb.onrender.com
 
 
 
-
+<br>
+<br>
 
 🛣️ **Roadmap**
 
