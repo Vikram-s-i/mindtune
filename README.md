@@ -1,114 +1,111 @@
-🌟 Mindtune — AI-Powered Adaptive Quiz Generator
+Mindtune — AI-Powered Adaptive Quiz Generator
 
-Mindtune is an intelligent quiz-generation platform that creates dynamic, personalized learning experiences using generative AI.
-Instead of relying on fixed question banks, Mindtune generates quizzes instantly from any topic entered by the user.
+Mindtune is an intelligent quiz-generation platform designed to create dynamic, personalized learning experiences using generative AI.
 
-Whether the topic is Linear Algebra, Organic Chemistry, or World History, Mindtune produces a complete 10-question quiz with diverse difficulty levels and reasoning types — giving users a fast, adaptive way to learn anything.
+Instead of relying on fixed question banks, Mindtune generates quizzes instantly from any topic the user enters — making learning adaptive, fast, and accessible.
 
-🚀 Key Features
+The system ensures a consistent structure:
 
-Instant AI-generated quizzes from any topic
+10 questions
 
-Balanced difficulty mix:
+5 Easy • 4 Medium • 1 Hard
 
-5 Easy
+Multiple question types: conceptual, numerical, paragraph-based, case-study, and multi-step reasoning
 
-4 Medium
+Strict relevance to the topic entered
 
-1 Hard
+Every quiz evaluates a variety of cognitive skills rather than repeating similar patterns.
 
-5 Question Types:
 
-Conceptual
 
-Numerical
+Live Demo
+🔹 Frontend (Next.js / Vercel)
 
-Case Study
+👉 https://mindtune-kappa.vercel.app
 
-Paragraph-based
+🔹 Backend (Flask / Render)
 
-Multi-step reasoning
+👉 https://mindtune-y7gb.onrender.com
 
-Structured JSON output enforced by prompt engineering
 
-Interactive quiz UI with navigation and timers
 
-Automatic scoring & analytics
 
-Performance summary with improvements section
+How It Works — System Flow
+1️⃣ User Enters a Topic
 
-Fast, modern frontend powered by Next.js
+The user types any subject they want to practice in the Topic screen.
 
-Reliable backend using Flask + Gemini AI
+2️⃣ Frontend Sends Request to Backend
 
-🧠 How Mindtune Works
-1. User Enters a Topic
+A POST request is sent from the Next.js frontend to the Flask backend:
 
-The learner types a subject they want to practice in the Topic screen.
+POST https://mindtune-y7gb.onrender.com/generate
 
-2. Frontend Sends Request
 
-A POST /generate request is sent to the Flask backend containing the topic.
+Payload:
 
-3. AI Question Generation (Backend)
+{ "topic": "<user-topic>" }
 
-The backend uses Google Gemini to generate:
+3️⃣ AI Question Generation (Backend)
+
+The backend uses Google Gemini with a structured prompt enforcing:
 
 Exactly 10 questions
 
-4 options per question
+4 options each
 
-Strict JSON structure
+Strict JSON output
 
-Required difficulty distribution
+The required difficulty and type distribution
 
-Required question type mix
+Topic relevance
 
-Topic-relevant, diverse questions
+The backend validates and returns a clean JSON array.
 
-The backend validates and formats the AI response before sending it back.
+4️⃣ Quiz Display (Frontend)
 
-4. Quiz Experience (Frontend)
+The frontend (Next.js + Tailwind) handles:
 
-The Next.js app renders:
+Rendering questions
 
-Question navigation
+Navigation controls
 
-Options & selection tracking
+Tracking selected answers
 
-Per-question timers
+Time spent per question
 
-Ability to move forward/backward
+5️⃣ Submission & Scoring
 
-5. Submission & Scoring
+When the user submits:
 
-Once submitted, the app:
+Score is calculated
 
-Calculates score
+Correct/incorrect mapping is generated
 
-Marks correct/incorrect answers
+Total + average time is measured
 
-Computes total & average time
+Performance analytics are built
 
-Generates analytics
+Areas for improvement are identified
 
-Summarizes strengths and weaknesses
+6️⃣ Results Page
 
-6. Results Screen
+Users receive a full summary with:
 
-Users receive:
-
-Final score & percentage
+Final score percentage
 
 Correct vs incorrect breakdown
 
 Time analysis
 
-Improvement suggestions
+Weakness insights
 
-Options to retry or go home
+Buttons to retry or return home
 
-🛠️ Tech Stack
+
+
+
+Key Technologies
 Frontend
 
 Next.js (App Router)
@@ -117,13 +114,13 @@ React
 
 TailwindCSS
 
-Client-side state management (React Hooks)
-
 Fetch API
+
+Vercel deployment
 
 Backend
 
-Flask (Python)
+Flask
 
 Google Generative AI (Gemini)
 
@@ -131,100 +128,81 @@ python-dotenv
 
 Flask-CORS
 
-JSON validation utilities
-
-🏗️ Architecture Overview
-User → Mindtune UI (Next.js, Vercel)
-        ↓
-POST /generate
-        ↓
-Flask Backend (Render)
-        ↓
-Gemini Model → Validated JSON Output
-        ↓
-Quiz Rendering → Scoring Engine → Results Screen
+Render deployment
 
 
-(You may replace this with your actual PNG/SVG architecture diagram.)
 
-⚙️ Local Setup & Installation
-1. Clone the Repository
-git clone https://github.com/<your-username>/mindtune.git
-cd mindtune
 
-Backend Setup (Flask)
-2. Install dependencies
+Architecture Overview
+
+User
+ ↓
+Next.js Frontend (Vercel)
+ ↓  POST /generate  
+Flask Backend (Render)Why Mindtune Works
+
+No need for huge question banks
+
+Every quiz is unique, generated instantly
+
+Ensures balanced difficulty and varied reasoning styles
+
+Clean and modular architecture (Frontend ↔ Backend isolation)
+
+Easy to extend (user accounts, history, leaderboard, adaptive learning)
+
+
+
+
+
+🔧 Development Setup
+Backend (Flask)
 cd backend
 pip install -r requirements.txt
 
-3. Create a .env file
+
+.env file:
+
 GEMINI_API_KEY=your_key_here
 
-4. Run the server
+
+Run server:
+
 python back.py
 
-
-Backend runs at:
-
-http://localhost:5000
-
-Frontend Setup (Next.js)
-5. Install dependencies
+Frontend (Next.js)
 cd frontend
 npm install
-
-6. Create .env.local
-NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
-
-7. Run the development server
 npm run dev
 
 
-Frontend runs at:
+.env.local:
 
-http://localhost:3000
-
-🌐 Deployment
-Frontend (Vercel)
-
-Deploy /frontend
-
-Add environment variable:
-NEXT_PUBLIC_BACKEND_URL=https://<render-backend-url>
-
-Backend (Render)
-
-Deploy /backend
-
-Runtime: Python
-
-Start Command:
-
-gunicorn back:app --bind 0.0.0.0:$PORT
+NEXT_PUBLIC_BACKEND_URL=https://mindtune-y7gb.onrender.com
 
 
-Add environment variable:
 
-GEMINI_API_KEY=your_key
 
-🧭 Roadmap
 
- Adaptive difficulty scaling using past performance
+🛣️ Roadmap
 
- Personalized question recommendations
+Adaptive difficulty
 
- Downloadable PDF report per quiz
+Personalized learning paths
 
- User accounts & progress tracking
+PDF quiz result downloads
 
- Multi-language support
+User authentication
 
- Teacher dashboard for classroom use
+Session history & progress graph
 
-📄 License
+Teacher dashboard
+ ↓
+Gemini AI → Generates structured question JSON
+ ↓
+Next.js → Quiz Rendering → Scoring Engine → Results Page
 
-This project is licensed under the MIT License.
 
-🙌 Contributors
 
-Made with 💡, ☕, and a passion for AI-driven education.
+
+
